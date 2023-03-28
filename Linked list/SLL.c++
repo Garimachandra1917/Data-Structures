@@ -272,30 +272,91 @@ void delete_ (int val){
 };
 
 int main(){
-      
-    SLL *s1 = new SLL() ;
-    s1->addbeg(10);
-    s1->addbeg(10);
-   s1->addlast(10); 
-//    s1->addlast(20);
-//    s1->addlast(40); 
-   s1->addlast(10); 
-   s1->addlast(10); 
-    s1->display();
-    //s1->insertbef(99,24);
-    //s1->insertbef(100,55);
-    //s1->insertafter(200,45);
-    //s1->insertafter(33,67);
-    // s1->delbeg();
-    // s1->dellast();
-    s1->delete_(20);
-    //s1->delete_(45);
-   // s1->delete_(100);
-   // s1->display();
-    //s1->count();
-   // s1->search(100);
-   //s1->~SLL();
-   s1->display();
+    
+    //object creation
+    SLL s;
+
+    int c , data ,val;
+    char ch = 'y';
+
+    //Menu
+    while(ch=='Y'|| ch =='y')
+    {
+        cout<<"1.Add node at the begining of the list"<<endl;
+        cout<<"2.Add node at the end of the list "<<endl;
+        cout<<"3.Delete the first node of the list "<<endl;
+        cout<<"4.Delete the last node of the list "<<endl;
+        cout<<"5. Insert node before a given node "<<endl;
+        cout<<"6. Insert node after a given node "<<endl;
+        cout<<"7.Delete a given node "<<endl;
+        cout<<"8.Search a node "<<endl;
+        cout<<"9.Count nodes in the list "<<endl;
+        cout<<"10.Display all the nodes of the list "<<endl;
+        cout<<"11.Exit"<<endl;
+
+        cout<<"Enter your choice !!"<<endl;
+        cin>>c;
+
+        //switch cases
+        switch(c)
+        {
+            case 1 : cout<<"Enter the data to be inserted"<<endl;
+                     cin>>data;
+                     s.addbeg(data);
+                     break;
+            
+            case 2 : cout<<"Enter the data to be inserted"<<endl;
+                     cin>>data;
+                     s.addlast(data);
+                     break;
+
+            case 3 : s.delbeg();
+                     break;
+            
+            case 4 : s.dellast();
+                     break;
+
+            case 5: cout<<"Enter the data to be inserted"<<endl;
+                    cin>>data;
+                    cout<<"Enter the node before which new node needs to be inserted"<<endl;
+                    cin>>val;
+                    s.insertbef(data,val);
+                    break;
+
+            case 6: cout<<"Enter the data to be inserted"<<endl;
+                    cin>>data;
+                    cout<<"Enter the node after which new node needs to be inserted"<<endl;
+                    cin>>val;
+                    s.insertafter(data,val);
+                    break;
+
+            case 7: cout<<"Enter the node to be deleted"<<endl;
+                    cin>>data;
+                    s.delete_(data);
+                    break;
+
+            case 8: cout<<"Enter the data of the node that needs to be searched"<<endl;
+                    cin>>data;
+                    s.search(data);
+                    break;
+
+            case 9: s.count();
+                    break;
+
+            case 10 : s.display();
+                    break;
+
+            case 11: exit(0);
+            
+            default : cout<<"Invalid choice!!"<<endl;
+
+        }
+        
+        /*Enter "Y" to continue and "N" to stop*/
+        cout<<"Do you want to continue ?? (Y/N)"<<endl;
+        cin>>ch;
+
+    }
 
     return 0;
 }
